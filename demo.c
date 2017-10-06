@@ -18,12 +18,21 @@ int main()
         tmp1 = mas [0][i];
         mas [0][i] = mas [0][j];
         mas [0][j] = tmp1;
+        tmp2 = mas [4][i];
+        mas [4][i] = mas [4][j];
+        mas [4][j] = tmp2;
+    }
+    
+    for (i=0, i<6; i++;){
+        tmp1 = mas[0][i];
+        mas [0][i] = mas [4][i];
+        mas [4][i] = tmp1;
     }
     
     printf("\n");
     
-    for (i=0; i<6; i++){
-        for (j=0; j<5; j++){
+    for (i=0; i<5; i++){
+        for (j=0; j<6; j++){
             printf("%d  ", mas[i][j]);
         }
     printf("\n");
