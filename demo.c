@@ -1,38 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
+#define w 7
+#define h 5
 int main()
 {
-    int mas [5][6];
+    int mas [h][w];
     int i,j,tmp1, tmp2;
     srand(time(NULL));
     
-    for (i=0; i<5; i++){
-        for (j=0; j<6; j++){
-            mas[i][j]=rand()%100;
+    for (i=0; i<h; i++){
+        for (j=0; j<w; j++){
+            mas[i][j]=rand()%25;
             printf("%d  ", mas[i][j]);
         }
     printf("\n");
     }
     
-    for (i=0, j = 5; i<3; i++, j--){
+    for (i=0, j = w; i<(1+(w/2)); i++, j--){
         tmp1 = mas [0][i];
         mas [0][i] = mas [0][j];
         mas [0][j] = tmp1;
-        tmp2 = mas [4][i];
-        mas [4][i] = mas [4][j];
-        mas [4][j] = tmp2;
+        tmp2 = mas [h-1][i];
+        mas [h-1][i] = mas [h-1][j];
+        mas [h-1][j] = tmp2;
     }
     
-    for (i=0, i<6; i++;){
+    for (i=0; i<w; i++){
         tmp1 = mas[0][i];
-        mas [0][i] = mas [4][i];
-        mas [4][i] = tmp1;
+        mas [0][i] = mas [h-1][i];
+        mas [h-1][i] = tmp1;
     }
     
     printf("\n");
     
-    for (i=0; i<5; i++){
-        for (j=0; j<6; j++){
+    for (i=0; i<h; i++){
+        for (j=0; j<w; j++){
             printf("%d  ", mas[i][j]);
         }
     printf("\n");
