@@ -1,48 +1,44 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <time.h>
-#define w 7
-#define h 5
-int main()
-{
-    int mas [h][w];
-    int i,j,tmp1, tmp2, tmp3, tmp4, x, y;
+#define vert 9
+#define horiz 6
+int main(){
+    int massive1[horiz][vert];
+    int a, b, c, i, j;
     srand(time(NULL));
-    printf("\nQuest 01\n\n");
-    for (i=0; i<h; i++){
-        for (j=0; j<w; j++){
-            mas[i][j]=rand()%25;
-            printf("%d  ", mas[i][j]);
+    printf("\nQuest 01: just make some MASSIVE thing\n\n");
+    for (i=0; i<horiz; i++){
+        for (j=0; j<vert; j++){
+            massive1[i][j]=rand()%25;
+            printf("%d  ", massive1[i][j]);
         }
     printf("\n");
     }
-    tmp4 = 0;
-    for (i=-1, j = w; i<((w/2)); i++, j--){
-        tmp1 = mas [0][i];
-        mas [0][i] = mas [0][j];
-        mas [0][j] = tmp1;
-        tmp2 = mas [h-1][i];
-        mas [h-1][i] = mas [h-1][j];
-        mas [h-1][j] = tmp2;
-    }
-    tmp3 = 26; /*max value + 1*/
-    for (i=-1; i<w+1; i++){
-        tmp1 = mas[0][i];
-        mas [0][i] = mas [h-1][i];
-        mas [h-1][i] = tmp1;
+    
+    for (i=0, j=vert-1; i<vert/2; i++, j--){
+        a = massive1[0][j];
+        massive1[0][j] = massive1[0][i];
+        massive1[0][i] = a;
+        
+        b = massive1[horiz-1][j];
+        massive1[horiz-1][j] = massive1[horiz-1][i];
+        massive1[horiz-1][i] = b;
     }
     
-    printf("\nQuest 02\n\n");
+    for (i=0; i<vert; i++){
+        a = massive1[0][i];
+        massive1[0][i] = massive1[horiz-1][i];
+        massive1[horiz-1][i] = a;
+    }
     
-    for (i=0; i<h; i++){
-        for (j=0; j<w; j++){
-            printf("%d  ", mas[i][j]);
+    printf("\nQuest 02: show first and last rows backwards and make first one last and last one first\n\n");
+    
+    for (i=0; i<horiz; i++){
+        for (j=0; j<vert; j++){
+            printf("%d  ", massive1[i][j]);
         }
     printf("\n");
     }
-    printf("\nQuest 03\n\n");
     
-   
     
-    printf("x = %d, y = %d", x, y);
 }
