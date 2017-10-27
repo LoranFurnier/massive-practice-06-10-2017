@@ -4,14 +4,17 @@
 #include <limits.h>
 #define vert 9
 #define horiz 6
-int main(){
-    int massive1[horiz][vert];
-    int massive2[horiz-1][vert-1];
+void main(){
     int a, b, c, i, j, x, y;
+    int **massive1 = NULL;
+    massive1 = (int**) malloc(horiz * sizeof(int*));
+    for (i = 0; i < horiz; i++) {
+        massive1[i] = (int*) malloc(vert * sizeof(int));
+    }
     
     c = INT_MAX;/*for Quest 03*/
     
-    srand(time(NULL));
+    srand(time(NULL));/*for random*/
     
     printf("\nQuest 01: just make some MASSIVE thing\n\n");
     
@@ -60,25 +63,23 @@ int main(){
         }
     }
     
-    for (i=0; i<horiz; i++){
-        for (j=0; j<vert; j++){
-            if(i==x || j==y){
-                continue;
-            }
-            massive2[i][j] = massive1[i][j];
+    for (i=0; i<horiz; i++) {
+        for (j=0;j<vert;j++) {
+            massive1[x][j] = 0;
+            massive1[i][y] = 0;
         }
     }
-    
+
     for (i=0; i<horiz; i++){
         for (j=0; j<vert; j++){
-            free(massive1[i][j]);
-        }
-    }
-    
-    for (i=0; i<horiz; i++){
-        for (j=0; j<vert; j++){
-            printf("%d  ", massive2[i][j]);
+            printf("%d  ", massive1[i][j]);
         }
     printf("\n");
     }
+    
+    for (i = 0; i < horiz; i++) {
+        free(massive1[i]);
+    }
+    free(massive1);
+    
 }
