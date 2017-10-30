@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <limits.h>
-#define vert 5
-#define horiz 3
+#define vert 12
+#define horiz 9
 void main()
 {
 	int a, b, c, cols2, i, j, x, y;
@@ -26,7 +26,7 @@ void main()
 	{
 		for (j = 0; j < vert; j++)
 		{
-			massive1[i][j] = rand() % 10 + 1;
+			massive1[i][j] = rand() % 10000;
 			printf("%d  ", massive1[i][j]);
 		}
 		printf("\n\n");
