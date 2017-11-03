@@ -1,9 +1,10 @@
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <limits.h>
-#define vert 12
-#define horiz 9
+#define vert 10
+#define horiz 7
 void main()
 {
 	int a, b, c, cols2, i, j, x, y;
@@ -180,4 +181,3 @@ void main()
 		printf("\n\n");
 	}
 }
-
