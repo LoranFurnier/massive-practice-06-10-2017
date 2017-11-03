@@ -5,7 +5,7 @@
 #include <limits.h>
 #define vert 10
 #define horiz 7
-void main()
+int main()
 {
 	int a, b, c, cols2, i, j, x, y;
 	int **massive1 = NULL;
